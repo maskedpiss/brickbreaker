@@ -16,7 +16,7 @@ end
 function Paddle:update(dt)
   local mouseX, mouseY = love.mouse.getPosition()
   
-  self.x = mouseX
+  self.x = mouseX - (self.width / 2)
 end
 
 
