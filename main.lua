@@ -1,9 +1,11 @@
 Globals = {}
 Globals.Paddle = nil
+Globals.Ball = nil
 
 local setVisible = false
 
 local paddle = nil
+local ball = nil
 
 function love.load()
   Globals.Screen = {
@@ -17,6 +19,9 @@ function love.load()
   
   Globals.Paddle = require("src/objs/paddle")
   paddle = Globals.Paddle.new()
+  
+  Globals.Ball = require("src/objs/ball")
+  ball = Globals.Ball.new()
 end
 
 
@@ -27,6 +32,7 @@ end
 
 function love.draw()
   paddle:draw()
+  ball:draw()
 end
 
 

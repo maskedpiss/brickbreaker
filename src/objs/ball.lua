@@ -1,7 +1,15 @@
 local Ball = {}
 
 function Ball.new()
+  local instance = {}
+  setmetatable(instance, { __index = Ball })
   
+  instance.x = Globals.Screen.width / 2
+  instance.y = Globals.Screen.height / 2
+  instance.width = 20
+  instance.height = instance.width
+  
+  return instance
 end
 
 
@@ -11,7 +19,8 @@ end
 
 
 function Ball:draw()
-  
+  love.graphics.setColor(1, 1, 1)
+  love.graphics.rectangle("fill", self.x, self.y, self.width, self.height)
 end
 
 return Ball
