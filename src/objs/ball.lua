@@ -10,14 +10,13 @@ function Ball.new()
   instance.height = instance.width
   instance.speed = 200
   instance.xVel = 0
-  instance.yVel = 0
+  instance.yVel = instance.speed
   
   return instance
 end
 
 
 function Ball:update(dt)
-  self.yVel = self.speed
   self.y = self.y + self.yVel * dt
 end
 

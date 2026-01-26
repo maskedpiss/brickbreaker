@@ -29,6 +29,11 @@ end
 function love.update(dt)
   paddle:update(dt)
   ball:update(dt)
+  
+  if Globals.Collisions:AABB(ball, paddle) then
+    ball.y = paddle.y - ball.height
+    ball.yVel = -ball.yVel
+  end
 end
 
 
