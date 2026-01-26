@@ -17,6 +17,7 @@ end
 
 
 function Ball:update(dt)
+  self.x = self.x + self.xVel * dt
   self.y = self.y + self.yVel * dt
 end
 

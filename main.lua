@@ -33,6 +33,12 @@ function love.update(dt)
   if Globals.Collisions:AABB(ball, paddle) then
     ball.y = paddle.y - ball.height
     ball.yVel = -ball.yVel
+    
+    local middleBall = ball.x + ball.width / 2
+    local middlePaddle = paddle.x + paddle.width / 2
+    local collisionPosition = middleBall - middlePaddle
+    
+    ball.xVel = collisionPosition * 5
   end
 end
 
