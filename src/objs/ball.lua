@@ -37,6 +37,7 @@ function Ball:update(dt)
     self.y = Globals.Screen.y
     self.yVel = -self.yVel
   elseif self.y > Globals.Screen.height then
+    Globals.playerLives = Globals.playerLives - 1
     self:reset()
   end
 end
