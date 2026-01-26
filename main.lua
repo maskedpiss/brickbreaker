@@ -1,4 +1,5 @@
 Globals = {}
+Globals.Collisions = require("src/utils/collisions")
 Globals.Paddle = nil
 Globals.Ball = nil
 
