@@ -4,15 +4,20 @@ function Ball.new()
   local instance = {}
   setmetatable(instance, { __index = Ball })
   
-  instance.x = Globals.Screen.width / 2
-  instance.y = Globals.Screen.height / 2
-  instance.width = 20
-  instance.height = instance.width
-  instance.speed = 200
-  instance.xVel = 0
-  instance.yVel = instance.speed
+  instance:reset()
   
   return instance
+end
+
+
+function Ball:reset()
+  self.x = Globals.Screen.width / 2
+  self.y = Globals.Screen.height / 2
+  self.width = 20
+  self.height = self.width
+  self.speed = 200
+  self.xVel = 0
+  self.yVel = self.speed
 end
 
 
@@ -31,6 +36,8 @@ function Ball:update(dt)
   if self.y < Globals.Screen.y then
     self.y = Globals.Screen.y
     self.yVel = -self.yVel
+  elseif self.y > Globals.Screen.height then
+    self:reset()
   end
 end
 
