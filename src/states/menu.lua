@@ -31,7 +31,13 @@ end
 
 
 function Menu.mousepressed(x, y, button)
+  if playButton:mousepressed(x, y, button) then
+    return
+  end
   
+  if exitButton:mousepressed(x, y, button) then
+    return
+  end
 end
 
 
