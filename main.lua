@@ -1,6 +1,8 @@
 Globals = {}
 Globals.Paddle = nil
 
+local setVisible = false
+
 local paddle = nil
 
 function love.load()
@@ -10,6 +12,8 @@ function love.load()
       width = love.graphics.getWidth(),
       height = love.graphics.getHeight()
   }
+  
+  love.mouse.setVisible(setVisible)
   
   Globals.Paddle = require("src/objs/paddle")
   paddle = Globals.Paddle.new()
@@ -23,4 +27,12 @@ end
 
 function love.draw()
   paddle:draw()
+end
+
+
+--temp
+function love.keypressed(key)
+  if key == "escape" then
+    love.event.quit()
+  end
 end
