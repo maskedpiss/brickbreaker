@@ -17,7 +17,7 @@ end
 
 
 function love.update(dt)
-  
+  paddle:update(dt)
 end
 
 
