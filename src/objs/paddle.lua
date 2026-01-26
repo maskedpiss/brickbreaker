@@ -15,8 +15,13 @@ end
 
 function Paddle:update(dt)
   local mouseX, mouseY = love.mouse.getPosition()
-  
   self.x = mouseX - (self.width / 2)
+  
+  if self.x < Globals.Screen.x then
+    self.x = Globals.Screen.x
+  elseif self.x + self.width > Globals.Screen.width then
+    self.x = Globals.Screen.width - self.width
+  end
 end
 
 
