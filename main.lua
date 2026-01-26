@@ -1,4 +1,7 @@
 Globals = {}
+Globals.Paddle = nil
+
+local paddle = nil
 
 function love.load()
   Globals.Screen = {
@@ -7,6 +10,9 @@ function love.load()
       width = love.graphics.getWidth(),
       height = love.graphics.getHeight()
   }
+  
+  Globals.Paddle = require("src/objs/paddle")
+  paddle = Globals.Paddle.new()
 end
 
 
@@ -16,5 +22,5 @@ end
 
 
 function love.draw()
-  
+  paddle:draw()
 end

@@ -1,7 +1,15 @@
 local Paddle = {}
 
 function Paddle.new()
+  local instance = {}
+  setmetatable(instance, { __index = Paddle })
   
+  instance.x = Globals.Screen.width / 2
+  instance.y = Globals.Screen.height - 75
+  instance.width = 100
+  instance.height = 20
+  
+  return instance
 end
 
 
@@ -11,7 +19,8 @@ end
 
 
 function Paddle:draw()
-  
+  love.graphics.setColor(1, 1, 1)
+  love.graphics.rectangle("fill", self.x, self.y, self.width, self.height)
 end
 
 return Paddle
