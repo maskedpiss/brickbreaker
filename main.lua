@@ -1,7 +1,9 @@
 Globals = {}
+Globals.Bricks = {}
 Globals.Collisions = require("src/utils/collisions")
 Globals.Paddle = nil
 Globals.Ball = nil
+Globals.Brick = nil
 
 local setVisible = false
 
@@ -23,6 +25,9 @@ function love.load()
   
   Globals.Ball = require("src/objs/ball")
   ball = Globals.Ball.new()
+  
+  Globals.Brick = require("src/objs/brick")
+  Globals.Brick:init(8, 16)
 end
 
 
@@ -46,6 +51,7 @@ end
 function love.draw()
   paddle:draw()
   ball:draw()
+  Globals.Brick:draw()
 end
 
 
