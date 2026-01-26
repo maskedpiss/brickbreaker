@@ -31,7 +31,13 @@ function ScoreBoard:draw()
   love.graphics.setFont(self.Score.font)
   love.graphics.print(Globals.playerScore, self.Score.x, self.Score.y)
   
-  love.graphics.rectangle("fill", self.Lives.x, self.Lives.y, self.Lives.width, self.Lives.height)
+  if Globals.playerLives > 1 then
+    love.graphics.rectangle("fill", self.Lives.x, self.Lives.y, self.Lives.width, self.Lives.height)
+  end
+  
+  if Globals.playerLives > 2 then
+    love.graphics.rectangle("fill", self.Lives.x + 30, self.Lives.y, self.Lives.width, self.Lives.height)
+  end
 end
 
 return ScoreBoard
