@@ -10,7 +10,12 @@ function ScoreBoard.new()
       y = 0
   }
   
-  instance.Lives = {}
+  instance.Lives = {
+      x = Globals.Screen.width - 200,
+      y = 20,
+      width = 20,
+      height = 20
+  }
   
   return instance
 end
@@ -25,6 +30,8 @@ function ScoreBoard:draw()
   love.graphics.setColor(1, 1, 1)
   love.graphics.setFont(self.Score.font)
   love.graphics.print(Globals.playerScore, self.Score.x, self.Score.y)
+  
+  love.graphics.rectangle("fill", self.Lives.x, self.Lives.y, self.Lives.width, self.Lives.height)
 end
 
 return ScoreBoard
