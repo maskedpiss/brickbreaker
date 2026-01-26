@@ -3,6 +3,7 @@ Globals.Bricks = {}
 Globals.Collisions = require("src/utils/collisions")
 Globals.playerScore = 0
 Globals.playerLives = 3
+Globals.mouseVisible = nil
 Globals.Paddle = nil
 Globals.Ball = nil
 Globals.Brick = nil

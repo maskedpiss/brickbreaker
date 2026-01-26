@@ -1,7 +1,8 @@
 local Menu = {}
 
 function Menu.onEnter()
-  
+  Globals.mouseVisible = true
+  love.mouse.setVisible(Globals.mouseVisible)
 end
 
 
