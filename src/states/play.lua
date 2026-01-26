@@ -1,7 +1,8 @@
 local Play = {}
 
 function Play.onEnter()
-  
+  Globals.mouseVisible = false
+  love.mouse.setVisible(Globals.mouseVisible)
 end
 
 
