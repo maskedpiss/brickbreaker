@@ -49,6 +49,13 @@ function love.update(dt)
   for i, brick in ipairs(Globals.Bricks) do
     if Globals.Collisions:AABB(ball, brick) then
       table.remove(Globals.Bricks, i)
+      ball.yVel = -ball.yVel
+      
+      local middleBall = ball.x + ball.width / 2
+      local middleBrick = brick.x + brick.width / 2
+      local collisionPosition = middleBall - middleBrick
+      
+      ball.xVel = collisionPosition * 5
     end
   end
 end
