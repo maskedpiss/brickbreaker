@@ -8,13 +8,17 @@ function Ball.new()
   instance.y = Globals.Screen.height / 2
   instance.width = 20
   instance.height = instance.width
+  instance.speed = 200
+  instance.xVel = 0
+  instance.yVel = 0
   
   return instance
 end
 
 
 function Ball:update(dt)
-  
+  self.yVel = self.speed
+  self.y = self.y + self.yVel * dt
 end
 
 

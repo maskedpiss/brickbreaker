@@ -27,6 +27,7 @@ end
 
 function love.update(dt)
   paddle:update(dt)
+  ball:update(dt)
 end
 
 
