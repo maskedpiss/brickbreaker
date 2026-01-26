@@ -1,6 +1,7 @@
 local Menu = {}
 
-local button = nil
+local playButton = nil
+local exitButton = nil
 
 function Menu.onEnter()
   Globals.mouseVisible = true
@@ -14,11 +15,22 @@ function Menu.onEnter()
   }
   
   Globals.Button = require("src/objs/button")
-  button = Globals.Button.new("Button", Globals.Screen.width / 2, Globals.Screen.height / 2)
+  playButton = Globals.Button.new("Play", Globals.Screen.width / 2, Globals.Screen.height / 2, function()
+      GameState:changeState("play")
+    end)
+  
+  exitButton = Globals.Button.new("Exit", Globals.Screen.width / 2, (Globals.Screen.height / 2) + 100, function()
+      love.event.quit()
+    end)
 end
 
 
 function Menu.update(dt)
+  
+end
+
+
+function Menu.mousepressed(x, y, button)
   
 end
 
@@ -28,7 +40,8 @@ function Menu.draw()
   love.graphics.setFont(Menu.Title.font)
   love.graphics.printf(Menu.Title.text, Menu.Title.x, Menu.Title.y, Globals.Screen.width, "center")
   
-  button:draw()
+  playButton:draw()
+  exitButton:draw()
 end
 
 
