@@ -8,6 +8,7 @@ Globals.Paddle = nil
 Globals.Ball = nil
 Globals.Brick = nil
 Globals.ScoreBoard = nil
+Globals.Button = nil
 
 GameState = {
     current = nil,
