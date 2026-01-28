@@ -2,6 +2,7 @@ local Play = {}
 
 local paddle = nil
 local ball = nil
+local brick = nil
 local scoreBoard = nil
 
 function Play.onEnter()
@@ -16,12 +17,17 @@ function Play.onEnter()
   
   Globals.ScoreBoard = require("src/objs/scoreboard")
   scoreBoard = Globals.ScoreBoard.new()
+  
+  Globals.Brick = require("src/objs/brick")
+  brick = Globals.Brick
+  brick:init(8, 16)
 end
 
 
 function Play.update(dt)
   paddle:update(dt)
   ball:update(dt)
+  brick:update(dt)
   scoreBoard:update(dt)
   
   if Globals.Collisions:AABB(ball, paddle) then
@@ -39,6 +45,7 @@ end
 function Play.draw()
   paddle:draw()
   ball:draw()
+  brick:draw()
   scoreBoard:draw()
 end
 
