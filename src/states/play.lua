@@ -2,6 +2,7 @@ local Play = {}
 
 local paddle = nil
 local ball = nil
+local scoreBoard = nil
 
 function Play.onEnter()
   Globals.mouseVisible = false
@@ -12,12 +13,16 @@ function Play.onEnter()
   
   Globals.Ball = require("src/objs/ball")
   ball = Globals.Ball.new()
+  
+  Globals.ScoreBoard = require("src/objs/scoreboard")
+  scoreBoard = Globals.ScoreBoard.new()
 end
 
 
 function Play.update(dt)
   paddle:update(dt)
   ball:update(dt)
+  scoreBoard:update(dt)
   
   if Globals.Collisions:AABB(ball, paddle) then
     ball.yVel = -ball.yVel
@@ -34,6 +39,7 @@ end
 function Play.draw()
   paddle:draw()
   ball:draw()
+  scoreBoard:draw()
 end
 
 
