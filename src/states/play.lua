@@ -39,6 +39,12 @@ function Play.update(dt)
     
     ball.xVel = collisionPosition * 5
   end
+  
+  for i, brick in ipairs(Globals.Bricks) do
+    if Globals.Collisions:AABB(ball, brick) then
+      table.remove(Globals.Bricks, i)
+    end
+  end
 end
 
 
