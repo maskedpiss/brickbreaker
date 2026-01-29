@@ -41,6 +41,8 @@ function Ball:update(dt)
     
     if Globals.playerLives > 0 then
       self:reset()
+    else
+      GameState:changeState("gameOver")
     end
   end
 end
