@@ -1,5 +1,7 @@
 local GameOver = {}
 
+local retryButton = nil
+
 function GameOver.onEnter()
   GameOver.Message = {
       font = love.graphics.newFont(128),
@@ -14,6 +16,11 @@ function GameOver.onEnter()
       x = Globals.Screen.x,
       y = 200
   }
+  
+  Globals.Button = require("src/objs/button")
+  retryButton = Globals.Button.new("Retry", Globals.Screen.width / 2, Globals.Screen.height / 2, function()
+      GameState:changeState("play")
+    end)
 end
 
 
@@ -29,6 +36,8 @@ function GameOver.draw()
   
   love.graphics.setFont(GameOver.Score.font)
   love.graphics.printf(GameOver.Score.text..tostring(Globals.playerScore), GameOver.Score.x, GameOver.Score.y, Globals.Screen.width, "center")
+  
+  retryButton:draw()
 end
 
 
