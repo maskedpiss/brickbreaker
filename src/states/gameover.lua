@@ -5,6 +5,9 @@ local menuButton = nil
 local exitButton = nil
 
 function GameOver.onEnter()
+  Globals.mouseVisible = true
+  love.mouse.setVisible(Globals.mouseVisible)
+  
   GameOver.Message = {
       font = love.graphics.newFont(128),
       text = "Game Over!",
