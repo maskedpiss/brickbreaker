@@ -66,7 +66,14 @@ end
 
 
 function Play.onExit()
-  
+  Globals.Paddle = nil
+  Globals.Ball = nil
+  Globals.ScoreBoard = nil
+  Globals.Brick = nil
+  paddle = nil
+  ball = nil
+  scoreBoard = nil
+  brick = nil
 end
 
 return Play
