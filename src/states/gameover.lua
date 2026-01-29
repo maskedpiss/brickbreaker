@@ -7,6 +7,13 @@ function GameOver.onEnter()
       x = Globals.Screen.x,
       y = 50
   }
+  
+  GameOver.Score = {
+      font = love.graphics.newFont(64),
+      text = "Score: ",
+      x = Globals.Screen.x,
+      y = 200
+  }
 end
 
 
@@ -19,6 +26,9 @@ function GameOver.draw()
   love.graphics.setColor(1, 1, 1)
   love.graphics.setFont(GameOver.Message.font)
   love.graphics.printf(GameOver.Message.text, GameOver.Message.x, GameOver.Message.y, Globals.Screen.width, "center")
+  
+  love.graphics.setFont(GameOver.Score.font)
+  love.graphics.printf(GameOver.Score.text..tostring(Globals.playerScore), GameOver.Score.x, GameOver.Score.y, Globals.Screen.width, "center")
 end
 
 
