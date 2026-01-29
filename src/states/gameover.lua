@@ -46,6 +46,10 @@ function GameOver.mousepressed(x, y, button)
   if retryButton:mousepressed(x, y, button) then
     return
   end
+  
+  if menuButton:mousepressed(x, y, button) then
+    return
+  end
 end
 
 
