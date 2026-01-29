@@ -27,6 +27,7 @@ end
 function Play.update(dt)
   paddle:update(dt)
   ball:update(dt)
+  
   brick:update(dt)
   scoreBoard:update(dt)
   
@@ -53,6 +54,10 @@ function Play.update(dt)
       table.remove(Globals.Bricks, i)
       Globals.playerScore = Globals.playerScore + 100
     end
+  end
+  
+  if Globals.playerLives < 1 then
+    GameState:changeState("gameOver")
   end
 end
 
