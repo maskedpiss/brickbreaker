@@ -50,6 +50,10 @@ function GameOver.mousepressed(x, y, button)
   if menuButton:mousepressed(x, y, button) then
     return
   end
+  
+  if exitButton:mousepressed(x, y, button) then
+    return
+  end
 end
 
 
