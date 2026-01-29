@@ -2,6 +2,7 @@ local GameOver = {}
 
 local retryButton = nil
 local menuButton = nil
+local exitButton = nil
 
 function GameOver.onEnter()
   GameOver.Message = {
@@ -26,6 +27,10 @@ function GameOver.onEnter()
   menuButton = Globals.Button.new("Menu", Globals.Screen.width / 2, (Globals.Screen.height / 2) + 100, function()
       GameState:changeState("menu")
     end)
+  
+  exitButton = Globals.Button.new("Exit", Globals.Screen.width / 2, (Globals.Screen.height / 2) + 200, function()
+      love.event.quit()
+    end)
 end
 
 
@@ -44,6 +49,7 @@ function GameOver.draw()
   
   retryButton:draw()
   menuButton:draw()
+  exitButton:draw()
 end
 
 
