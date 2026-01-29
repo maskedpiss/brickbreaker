@@ -1,6 +1,7 @@
 local GameOver = {}
 
 local retryButton = nil
+local menuButton = nil
 
 function GameOver.onEnter()
   GameOver.Message = {
@@ -21,6 +22,10 @@ function GameOver.onEnter()
   retryButton = Globals.Button.new("Retry", Globals.Screen.width / 2, Globals.Screen.height / 2, function()
       GameState:changeState("play")
     end)
+  
+  menuButton = Globals.Button.new("Menu", Globals.Screen.width / 2, (Globals.Screen.height / 2) + 100, function()
+      GameState:changeState("menu")
+    end)
 end
 
 
@@ -38,6 +43,7 @@ function GameOver.draw()
   love.graphics.printf(GameOver.Score.text..tostring(Globals.playerScore), GameOver.Score.x, GameOver.Score.y, Globals.Screen.width, "center")
   
   retryButton:draw()
+  menuButton:draw()
 end
 
 
