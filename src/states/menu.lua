@@ -52,7 +52,10 @@ end
 
 
 function Menu.onExit()
-  
+  Menu.Title = {}
+  Globals.Button = nil
+  playButton = nil
+  exitButton = nil
 end
 
 return Menu

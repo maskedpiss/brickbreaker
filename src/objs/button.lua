@@ -31,7 +31,9 @@ end
 function Button:mousepressed(x, y, button)
   if self:isHovering(x, y) and button == 1 then
     self:callback()
+    return true
   end
+  return false
 end
 
 
