@@ -51,6 +51,7 @@ function Play.update(dt)
       ball.xVel = collisionPosition * 5
       
       table.remove(Globals.Bricks, i)
+      Globals.playerScore = Globals.playerScore + 100
     end
   end
 end
