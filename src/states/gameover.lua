@@ -10,7 +10,7 @@ function GameOver.onEnter()
   
   GameOver.Message = {
       font = love.graphics.newFont(128),
-      text = "Game Over!",
+      text = "text",
       x = Globals.Screen.x,
       y = 50
   }
@@ -38,7 +38,11 @@ end
 
 
 function GameOver.update(dt)
-  
+  if Globals.playerLives > 0 then
+    GameOver.Message.text = "You Win!"
+  else
+    GameOver.Message.text = "Game Over!"
+  end
 end
 
 
