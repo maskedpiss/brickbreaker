@@ -7,6 +7,7 @@ local scoreBoard = nil
 
 function Play.onEnter()
   Globals.playerLives = 3
+  Globals.playerScore = 0
   
   Globals.mouseVisible = false
   love.mouse.setVisible(Globals.mouseVisible)
