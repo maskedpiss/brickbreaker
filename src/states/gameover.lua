@@ -23,9 +23,12 @@ function GameOver.onEnter()
   }
   
   Globals.Button = require("src/objs/button")
-  retryButton = Globals.Button.new("Retry", Globals.Screen.width / 2, Globals.Screen.height / 2, function()
-      GameState:changeState("play")
-    end)
+  
+  if Globals.playerLives <= 0 then
+    retryButton = Globals.Button.new("Retry", Globals.Screen.width / 2, Globals.Screen.height / 2, function()
+        GameState:changeState("play")
+      end)
+  end
   
   menuButton = Globals.Button.new("Menu", Globals.Screen.width / 2, (Globals.Screen.height / 2) + 100, function()
       GameState:changeState("menu")
@@ -69,7 +72,10 @@ function GameOver.draw()
   love.graphics.setFont(GameOver.Score.font)
   love.graphics.printf(GameOver.Score.text..tostring(Globals.playerScore), GameOver.Score.x, GameOver.Score.y, Globals.Screen.width, "center")
   
-  retryButton:draw()
+  if Globals.playerLives <= 0 then
+    retryButton:draw()
+  end
+  
   menuButton:draw()
   exitButton:draw()
 end
