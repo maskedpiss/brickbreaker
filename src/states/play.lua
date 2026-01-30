@@ -22,7 +22,7 @@ function Play.onEnter()
   
   Globals.Brick = require("src/objs/brick")
   brick = Globals.Brick
-  brick:init(8, 16)
+  brick:init(1, 1)
 end
 
 
@@ -56,6 +56,10 @@ function Play.update(dt)
       table.remove(Globals.Bricks, i)
       Globals.playerScore = Globals.playerScore + 100
     end
+  end
+  
+  if next(Globals.Bricks) == nil then
+    GameState:changeState("gameOver")
   end
   
   if Globals.playerLives < 1 then
