@@ -8,6 +8,7 @@ local scoreBoard = nil
 function Play.onEnter()
   Globals.playerLives = 3
   Globals.playerScore = 0
+  Globals.playerShrunk = false
   
   Globals.mouseVisible = false
   love.mouse.setVisible(Globals.mouseVisible)
@@ -33,6 +34,10 @@ function Play.update(dt)
   
   brick:update(dt)
   scoreBoard:update(dt)
+  
+  if ball.y <= Globals.Screen.y then
+    paddle:shrink()
+  end
   
   if Globals.Collisions:AABB(ball, paddle) then
     ball.yVel = -ball.yVel

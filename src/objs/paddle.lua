@@ -25,6 +25,14 @@ function Paddle:update(dt)
 end
 
 
+function Paddle:shrink()
+  if not Globals.playerShrunk then
+    self.width = 50
+    Globals.playerShrunk = true
+  end
+end
+
+
 function Paddle:draw()
   love.graphics.setColor(1, 1, 1)
   love.graphics.rectangle("fill", self.x, self.y, self.width, self.height)
