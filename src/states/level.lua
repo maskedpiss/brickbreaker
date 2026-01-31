@@ -6,11 +6,16 @@ function Level.onEnter()
       x = Globals.Screen.x,
       y = (Globals.Screen.height / 2) - 128
   }
+  
+  Level.Timer = 4
 end
 
 
 function Level.update(dt)
-  
+  Level.Timer = Level.Timer - 1 * dt
+  if Level.Timer <= 0 then
+    GameState:changeState("play")
+  end
 end
 
 
