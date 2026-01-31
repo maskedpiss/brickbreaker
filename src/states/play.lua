@@ -65,7 +65,12 @@ function Play.update(dt)
   end
   
   if next(Globals.Bricks) == nil then
-    GameState:changeState("gameOver")
+    if Globals.level < 8 then
+      Globals.level = Globals.level + 1
+      GameState:changeState("levelTransition")
+    else
+      GameState:changeState("gameOver")
+    end
   end
   
   if Globals.playerLives < 1 then
