@@ -16,7 +16,7 @@ function Menu.onEnter()
   
   Globals.Button = require("src/objs/button")
   playButton = Globals.Button.new("Play", Globals.Screen.width / 2, Globals.Screen.height / 2, function()
-      GameState:changeState("play")
+      GameState:changeState("levelTransition")
     end)
   
   exitButton = Globals.Button.new("Exit", Globals.Screen.width / 2, (Globals.Screen.height / 2) + 100, function()

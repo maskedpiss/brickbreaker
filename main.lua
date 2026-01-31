@@ -1,6 +1,7 @@
 Globals = {}
 Globals.Bricks = {}
 Globals.Collisions = require("src/utils/collisions")
+Globals.level = 1
 Globals.playerScore = 0
 Globals.playerLives = 3
 Globals.playerShrunk = false
