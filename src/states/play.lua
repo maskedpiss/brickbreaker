@@ -6,6 +6,9 @@ local ball = nil
 local brick = nil
 local scoreBoard = nil
 
+local rows = nil
+local cols = nil
+
 function Play.onEnter()
   Globals.playerLives = 3
   Globals.playerScore = 0
@@ -23,8 +26,18 @@ function Play.onEnter()
   scoreBoard = require("src/objs/scoreboard")
   scoreBoard = scoreBoard.new()
   
+  Play.loadLevel()
+end
+
+
+function Play.loadLevel()
   brick = require("src/objs/brick")
-  brick:init(1, 16)
+  
+  if Globals.level == 1 then
+    rows = 1
+    cols = 16
+    brick:init(rows, cols)
+  end
 end
 
 
