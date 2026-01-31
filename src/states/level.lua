@@ -27,7 +27,8 @@ end
 
 
 function Level.onExit()
-  
+  Level.Text = nil
+  Level.Timer = nil
 end
 
 return Level
