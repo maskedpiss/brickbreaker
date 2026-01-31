@@ -17,8 +17,8 @@ function Play.onEnter()
   paddle = require("src/objs/paddle")
   player = paddle.new()
   
-  Globals.Ball = require("src/objs/ball")
-  ball = Globals.Ball.new()
+  ball = require("src/objs/ball")
+  ball = ball.new()
   
   Globals.ScoreBoard = require("src/objs/scoreboard")
   scoreBoard = Globals.ScoreBoard.new()
@@ -84,7 +84,6 @@ end
 
 
 function Play.onExit()
-  Globals.Ball = nil
   Globals.ScoreBoard = nil
   Globals.Brick = nil
   paddle = nil
