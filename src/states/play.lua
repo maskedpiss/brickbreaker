@@ -23,8 +23,7 @@ function Play.onEnter()
   Globals.ScoreBoard = require("src/objs/scoreboard")
   scoreBoard = Globals.ScoreBoard.new()
   
-  Globals.Brick = require("src/objs/brick")
-  brick = Globals.Brick
+  brick = require("src/objs/brick")
   brick:init(1, 16)
 end
 
@@ -85,7 +84,6 @@ end
 
 function Play.onExit()
   Globals.ScoreBoard = nil
-  Globals.Brick = nil
   paddle = nil
   player = nil
   ball = nil
