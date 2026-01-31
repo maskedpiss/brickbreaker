@@ -17,7 +17,7 @@ function Ball:reset()
   self.height = self.width
   self.speed = 200
   self.xVel = 0
-  self.yVel = self.speed
+  self.yVel = -self.speed
 end
 
 
