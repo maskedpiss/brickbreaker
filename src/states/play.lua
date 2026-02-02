@@ -42,6 +42,9 @@ function Play.loadLevel()
   elseif Globals.level == 3 then
     rows = 3
     cols = 16
+  elseif Globals.level == 4 then
+    rows = 4
+    cols = 16
   end
   
   brick:init(rows, cols)
