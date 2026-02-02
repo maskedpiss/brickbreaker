@@ -128,6 +128,8 @@ function Play.onExit()
   ball = nil
   scoreBoard = nil
   brick = nil
+  rows = nil
+  cols = nil
 end
 
 return Play
