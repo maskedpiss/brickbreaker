@@ -10,12 +10,13 @@ Globals.Button = nil
 
 GameState = {
     current = nil,
-    state = {
-        menu = require("src/states/menu"),
-        levelTransition = require("src/states/level"),
-        play = require("src/states/play"),
-        gameOver = require("src/states/gameover")
-    }
+    state_paths = {
+        menu = "src/states/menu",
+        levelTransition = "src/states/level",
+        play = "src/states/play",
+        gameOver = "src/states/gameover"
+    },
+    loaded_states = {}
 }
 
 function GameState:changeState(newState)
@@ -23,7 +24,12 @@ function GameState:changeState(newState)
     GameState.current.onExit()
   end
   
-  GameState.current = GameState.state[newState]
+  if not GameState.loaded_states[newState] then
+    local path = GameState.state_paths[newState]
+    GameState.loaded_states[newState] = require(path)
+  end
+  
+  GameState.current = GameState.loaded_states[newState]
   
   if GameState.current and GameState.current.onEnter then
     GameState.current.onEnter()
