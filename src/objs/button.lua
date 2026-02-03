@@ -43,7 +43,10 @@ function Button:draw()
   
   love.graphics.setColor(0, 0, 0)
   love.graphics.setFont(buttonFont)
-  love.graphics.printf(self.text, self.x, self.y, self.width, "center")
+  
+  local fontHeight = buttonFont:getHeight()
+  local textY = self.y + (self.height / 2) - (fontHeight / 2)
+  love.graphics.printf(self.text, self.x, textY, self.width, "center")
 end
 
 return Button
