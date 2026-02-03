@@ -12,7 +12,7 @@ end
 
 
 function Level.update(dt)
-  Level.Timer = Level.Timer - 1 * dt
+  Level.Timer = Level.Timer - dt
   if Level.Timer <= 0 then
     GameState:changeState("play")
   end
