@@ -36,31 +36,8 @@ end
 function Play.loadLevel()
   brick = require("src/objs/brick")
   
-  if Globals.level == 1 then
-    rows = 1
-    cols = 16
-  elseif Globals.level == 2 then
-    rows = 2
-    cols = 16
-  elseif Globals.level == 3 then
-    rows = 3
-    cols = 16
-  elseif Globals.level == 4 then
-    rows = 4
-    cols = 16
-  elseif Globals.level == 5 then
-    rows = 5
-    cols = 16
-  elseif Globals.level == 6 then
-    rows = 6
-    cols = 16
-  elseif Globals.level == 7 then
-    rows = 7
-    cols = 16
-  elseif Globals.level == 8 then
-    rows = 8
-    cols = 16
-  end
+  rows = math.min(Globals.level, 8)
+  cols = 16
   
   brick:init(rows, cols)
 end

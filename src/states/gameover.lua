@@ -1,5 +1,6 @@
 local GameOver = {}
 
+local Button = nil
 local retryButton = nil
 local menuButton = nil
 local exitButton = nil
@@ -22,19 +23,19 @@ function GameOver.onEnter()
       y = 200
   }
   
-  Globals.Button = require("src/objs/button")
+  Button = require("src/objs/button")
   
   if Globals.playerLives <= 0 then
-    retryButton = Globals.Button.new("Retry", Globals.Screen.width / 2, Globals.Screen.height / 2, function()
+    retryButton = Button.new("Retry", Globals.Screen.width / 2, Globals.Screen.height / 2, function()
         GameState:changeState("play")
       end)
   end
   
-  menuButton = Globals.Button.new("Menu", Globals.Screen.width / 2, (Globals.Screen.height / 2) + 100, function()
+  menuButton = Button.new("Menu", Globals.Screen.width / 2, (Globals.Screen.height / 2) + 100, function()
       GameState:changeState("menu")
     end)
   
-  exitButton = Globals.Button.new("Exit", Globals.Screen.width / 2, (Globals.Screen.height / 2) + 200, function()
+  exitButton = Button.new("Exit", Globals.Screen.width / 2, (Globals.Screen.height / 2) + 200, function()
       love.event.quit()
     end)
 end
@@ -84,7 +85,7 @@ end
 function GameOver.onExit()
   GameOver.Message = {}
   GameOver.Score = {}
-  Globals.Button = nil
+  Button = nil
   retryButton = nil
   menuButton = nil
   exitButton = nil

@@ -6,7 +6,6 @@ Globals.playerScore = 0
 Globals.playerLives = 3
 Globals.playerShrunk = false
 Globals.mouseVisible = nil
-Globals.Button = nil
 
 GameState = {
     current = nil,

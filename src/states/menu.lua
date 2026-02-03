@@ -1,5 +1,6 @@
 local Menu = {}
 
+local Button = nil
 local playButton = nil
 local exitButton = nil
 
@@ -14,12 +15,12 @@ function Menu.onEnter()
       y = 50
   }
   
-  Globals.Button = require("src/objs/button")
-  playButton = Globals.Button.new("Play", Globals.Screen.width / 2, Globals.Screen.height / 2, function()
+  Button = require("src/objs/button")
+  playButton = Button.new("Play", Globals.Screen.width / 2, Globals.Screen.height / 2, function()
       GameState:changeState("levelTransition")
     end)
   
-  exitButton = Globals.Button.new("Exit", Globals.Screen.width / 2, (Globals.Screen.height / 2) + 100, function()
+  exitButton = Button.new("Exit", Globals.Screen.width / 2, (Globals.Screen.height / 2) + 100, function()
       love.event.quit()
     end)
 end
@@ -53,7 +54,7 @@ end
 
 function Menu.onExit()
   Menu.Title = {}
-  Globals.Button = nil
+  Button = nil
   playButton = nil
   exitButton = nil
 end
