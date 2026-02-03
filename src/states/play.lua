@@ -10,8 +10,11 @@ local rows = nil
 local cols = nil
 
 function Play.onEnter()
-  Globals.playerLives = 3
-  Globals.playerScore = 0
+  if Globals.level == 1 then
+    Globals.playerLives = 3
+    Globals.playerScore = 0
+  end
+  
   Globals.playerShrunk = false
   
   Globals.mouseVisible = false
