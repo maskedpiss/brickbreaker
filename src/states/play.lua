@@ -35,11 +35,7 @@ end
 
 function Play.loadLevel()
   brick = require("src/objs/brick")
-  
-  rows = math.min(Globals.level, 8)
-  cols = 16
-  
-  brick:init(rows, cols)
+  brick:init(Globals.level)
 end
 
 

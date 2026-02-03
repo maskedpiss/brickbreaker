@@ -1,5 +1,7 @@
 local Levels = {}
 
-Levels.Layouts = {}
+Levels.Layouts = {
+    {1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1} --Level 1
+}
 
 return Levels
