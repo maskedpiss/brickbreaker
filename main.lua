@@ -1,5 +1,6 @@
 Globals = {}
 Globals.Bricks = {}
+Globals.Graphics = require("src/utils/graphics")
 Globals.Collisions = require("src/utils/collisions")
 Globals.Levels = require("src/utils/levels")
 Globals.level = 1
@@ -45,6 +46,7 @@ function love.load()
       height = love.graphics.getHeight()
   }
   
+  Globals.Graphics:loadFonts()
   GameState:changeState("menu")
 end
 
