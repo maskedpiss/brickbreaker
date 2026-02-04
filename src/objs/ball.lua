@@ -15,7 +15,7 @@ function Ball:reset()
   self.y = Globals.Screen.height / 2
   self.width = 20
   self.height = self.width
-  self.speed = 200
+  self.speed = 300
   self.xVel = love.math.random(-50, 50)
   self.yVel = -self.speed
 end

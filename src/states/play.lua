@@ -35,9 +35,6 @@ end
 
 function Play.loadLevel()
   brick = require("src/objs/brick")
-  
-  Globals.Bricks = {}
-  
   brick:init(Globals.level)
 end
 
@@ -66,22 +63,24 @@ function Play.update(dt)
   
   for i, brick in ipairs(Globals.Bricks) do
     if Globals.Collisions:AABB(ball, brick) then
-      local hitSide = Globals.Collisions:checkBrickCollision(ball, brick)
-      
-      if hitSide then
-        if hitSide == "horizontal" then
-          ball.xVel = -ball.xVel
-          if ball.x < brick.x then
-            ball.x = brick.x - ball.width
+      if math.abs(ball.y - brick.y) < 50 then
+        local hitSide = Globals.Collisions:checkBrickCollision(ball, brick)
+        
+        if hitSide then
+          if hitSide == "horizontal" then
+            ball.xVel = -ball.xVel
+            if ball.x < brick.x then
+              ball.x = brick.x - ball.width
+            else
+              ball.x = brick.x + brick.width
+            end
           else
-            ball.x = brick.x + brick.width
-          end
-        else
-          ball.yVel = -ball.yVel
-          if ball.y < brick.y then
-            ball.y = brick.y - ball.height
-          else
-            ball.y = brick.y + brick.height
+            ball.yVel = -ball.yVel
+            if ball.y < brick.y then
+              ball.y = brick.y - ball.height
+            else
+              ball.y = brick.y + brick.height
+            end
           end
         end
       end

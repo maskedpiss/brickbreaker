@@ -69,4 +69,6 @@ function love.draw()
   if GameState.current and GameState.current.draw then
     GameState.current.draw()
   end
+  
+  --love.graphics.print("Memory (KB): "..collectgarbage("count"), 10, 10)
 end

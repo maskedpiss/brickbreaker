@@ -17,6 +17,8 @@ end
 
 
 function Brick:init(levelNumber)
+  Globals.Bricks = {}
+  
   local startX, startY = 50, 50
   local bricksPerRow = 16
   local brickHealth = 1
