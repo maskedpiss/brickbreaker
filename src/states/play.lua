@@ -66,16 +66,39 @@ function Play.update(dt)
   
   for i, brick in ipairs(Globals.Bricks) do
     if Globals.Collisions:AABB(ball, brick) then
-      ball.yVel = -ball.yVel
+      local overlapX, overlapY
       
-      local middleBall = ball.x + ball.width / 2
-      local middleBrick = brick.x + brick.width / 2
-      local collisionPosition = middleBall - middleBrick
+      if ball.xVel > 0 then
+        overlapX = (ball.x + ball.width) - brick.x
+      else
+        overlapX = (brick.x + brick.width) - ball.x
+      end
       
-      ball.xVel = collisionPosition * 5
+      if ball.yVel > 0 then
+        overlapY = (ball.y + ball.height) - brick.y
+      else
+        overlapY = (brick.y + brick.height) - ball.y
+      end
+      
+      if overlapX < overlapY then
+        ball.xVel = -ball.xVel
+        if ball.x < brick.x then
+          ball.x = brick.x - ball.width
+        else
+          ball.x = brick.x + brick.width
+        end
+      else
+        ball.yVel = -ball.yVel
+        if ball.y < brick.y then
+          ball.y = brick.y - ball.height
+        else
+          ball.y = brick.y + brick.height
+        end
+      end
       
       table.remove(Globals.Bricks, i)
       Globals.playerScore = Globals.playerScore + 100
+      break
     end
   end
   
