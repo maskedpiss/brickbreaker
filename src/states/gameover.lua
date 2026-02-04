@@ -8,6 +8,7 @@ local exitButton = nil
 function GameOver.onEnter()
   Globals.mouseVisible = true
   love.mouse.setVisible(Globals.mouseVisible)
+  love.mouse.setGrabbed(false)
   
   GameOver.Message = {
       text = "text",

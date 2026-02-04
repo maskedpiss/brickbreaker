@@ -7,6 +7,7 @@ local exitButton = nil
 function Menu.onEnter()
   Globals.mouseVisible = true
   love.mouse.setVisible(Globals.mouseVisible)
+  love.mouse.setGrabbed(false)
   
   Menu.Title = {
       text = "Brick Breaker",

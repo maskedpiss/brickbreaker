@@ -19,6 +19,7 @@ function Play.onEnter()
   
   Globals.mouseVisible = false
   love.mouse.setVisible(Globals.mouseVisible)
+  love.mouse.setGrabbed(true)
   
   paddle = require("src/objs/paddle")
   player = paddle.new()
