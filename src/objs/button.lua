@@ -1,7 +1,5 @@
 local Button = {}
 
-local buttonFont = love.graphics.newFont(32)
-
 function Button.new(text, x, y, callback)
   local instance = {}
   setmetatable(instance, { __index = Button })
@@ -42,9 +40,9 @@ function Button:draw()
   love.graphics.rectangle("fill", self.x, self.y, self.width, self.height)
   
   love.graphics.setColor(0, 0, 0)
-  love.graphics.setFont(buttonFont)
+  love.graphics.setFont(Globals.Graphics.Fonts.ButtonFont)
   
-  local fontHeight = buttonFont:getHeight()
+  local fontHeight = Globals.Graphics.Fonts.ButtonFont:getHeight()
   local textY = self.y + (self.height / 2) - (fontHeight / 2)
   love.graphics.printf(self.text, self.x, textY, self.width, "center")
 end

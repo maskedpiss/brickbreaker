@@ -10,14 +10,12 @@ function GameOver.onEnter()
   love.mouse.setVisible(Globals.mouseVisible)
   
   GameOver.Message = {
-      font = love.graphics.newFont(128),
       text = "text",
       x = Globals.Screen.x,
       y = 50
   }
   
   GameOver.Score = {
-      font = love.graphics.newFont(64),
       text = "Score: ",
       x = Globals.Screen.x,
       y = 200
@@ -67,10 +65,10 @@ end
 
 function GameOver.draw()
   love.graphics.setColor(1, 1, 1)
-  love.graphics.setFont(GameOver.Message.font)
+  love.graphics.setFont(Globals.Graphics.Fonts.TitleFont)
   love.graphics.printf(GameOver.Message.text, GameOver.Message.x, GameOver.Message.y, Globals.Screen.width, "center")
   
-  love.graphics.setFont(GameOver.Score.font)
+  love.graphics.setFont(Globals.Graphics.Fonts.ScoreFont)
   love.graphics.printf(GameOver.Score.text..tostring(Globals.playerScore), GameOver.Score.x, GameOver.Score.y, Globals.Screen.width, "center")
   
   if Globals.playerLives <= 0 then

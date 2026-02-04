@@ -5,7 +5,6 @@ function ScoreBoard.new()
   setmetatable(instance, { __index = ScoreBoard })
   
   instance.Score = {
-      font = love.graphics.newFont(32),
       x = 0,
       y = 0
   }
@@ -28,7 +27,7 @@ end
 
 function ScoreBoard:draw()
   love.graphics.setColor(1, 1, 1)
-  love.graphics.setFont(self.Score.font)
+  love.graphics.setFont(Globals.Graphics.Fonts.ButtonFont)
   love.graphics.print(Globals.playerScore, self.Score.x, self.Score.y)
   
   if Globals.playerLives > 1 then
