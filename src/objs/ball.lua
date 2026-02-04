@@ -16,7 +16,7 @@ function Ball:reset()
   self.width = 20
   self.height = self.width
   self.speed = 200
-  self.xVel = 0
+  self.xVel = love.math.random(-50, 50)
   self.yVel = -self.speed
 end
 
