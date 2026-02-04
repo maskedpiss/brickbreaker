@@ -27,7 +27,12 @@ end
 
 function Paddle:shrink()
   if not Globals.playerShrunk then
+    local oldWidth = self.width
     self.width = 50
+    
+    local diff = oldWidth - self.width
+    self.x = self.x + (diff / 2)
+    
     Globals.playerShrunk = true
   end
 end
