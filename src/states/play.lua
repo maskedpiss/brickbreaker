@@ -35,6 +35,9 @@ end
 
 function Play.loadLevel()
   brick = require("src/objs/brick")
+  
+  Globals.Bricks = {}
+  
   brick:init(Globals.level)
 end
 
