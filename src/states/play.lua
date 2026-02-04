@@ -51,6 +51,7 @@ function Play.update(dt)
   end
   
   if Globals.Collisions:AABB(ball, player) then
+    ball.y = player.y - ball.height
     ball.yVel = -ball.yVel
     
     local middleBall = ball.x + ball.width / 2
