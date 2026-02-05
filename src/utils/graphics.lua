@@ -1,5 +1,11 @@
 local Graphics = {}
 
+
+function Graphics:loadColors()
+  
+end
+
+
 function Graphics:loadFonts()
   self.Fonts = {
       TitleFont = love.graphics.newFont(128),
