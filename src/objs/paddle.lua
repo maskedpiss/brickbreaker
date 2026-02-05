@@ -39,7 +39,7 @@ end
 
 
 function Paddle:draw()
-  love.graphics.setColor(1, 1, 1)
+  love.graphics.setColor(Globals.Graphics.Colors.white)
   love.graphics.rectangle("fill", self.x, self.y, self.width, self.height)
 end
 

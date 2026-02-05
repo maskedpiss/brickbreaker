@@ -26,7 +26,7 @@ end
 
 
 function ScoreBoard:draw()
-  love.graphics.setColor(1, 1, 1)
+  love.graphics.setColor(Globals.Graphics.Colors.white)
   love.graphics.setFont(Globals.Graphics.Fonts.ButtonFont)
   love.graphics.print(Globals.playerScore, self.Score.x, self.Score.y)
   
