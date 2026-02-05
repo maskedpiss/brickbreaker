@@ -49,6 +49,12 @@ function Play.update(dt)
   
   if ball.y <= Globals.Screen.y then
     player:shrink()
+  elseif ball.y > Globals.Screen.height then
+    Globals.playerLives = Globals.playerLives - 1
+    
+    if Globals.playerLives > 0 then
+      ball:reset()
+    end
   end
   
   if Globals.Collisions:AABB(ball, player) then
