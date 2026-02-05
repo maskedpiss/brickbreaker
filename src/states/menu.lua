@@ -27,7 +27,8 @@ end
 
 
 function Menu.update(dt)
-  
+  playButton:update(dt)
+  exitButton:update(dt)
 end
 
 

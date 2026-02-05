@@ -46,6 +46,13 @@ function GameOver.update(dt)
   else
     GameOver.Message.text = "Game Over!"
   end
+  
+  if retryButton then
+    retryButton:update(dt)
+  end
+  
+  menuButton:update(dt)
+  exitButton:update(dt)
 end
 
 
