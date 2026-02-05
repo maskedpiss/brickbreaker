@@ -7,6 +7,7 @@ Globals.level = 1
 Globals.playerScore = 0
 Globals.playerLives = 3
 Globals.playerShrunk = false
+Globals.playerMissed = false
 Globals.mouseVisible = nil
 
 GameState = {

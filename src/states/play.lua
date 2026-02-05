@@ -16,6 +16,7 @@ function Play.onEnter()
   end
   
   Globals.playerShrunk = false
+  Globals.playerMissed = false
   
   Globals.mouseVisible = false
   love.mouse.setVisible(Globals.mouseVisible)
@@ -52,6 +53,10 @@ function Play.update(dt)
   elseif ball.y > Globals.Screen.height then
     Globals.playerLives = Globals.playerLives - 1
     Globals.playerScore = Globals.playerScore - 50
+    
+    if not Globals.playerMissed then
+      Globals.playerMissed = true
+    end
     
     if Globals.playerLives > 0 then
       ball:reset()
@@ -102,6 +107,11 @@ function Play.update(dt)
   if next(Globals.Bricks) == nil then
     if Globals.level < 8 then
       Globals.level = Globals.level + 1
+      
+      if not Globals.playerMissed then
+        Globals.playerLives = Globals.playerLives + 1
+      end
+      
       GameState:changeState("levelTransition")
     else
       GameState:changeState("gameOver")
