@@ -82,6 +82,7 @@ end
 
 
 function GameOver.onExit()
+  Globals.level = 1
   GameOver.Message = {}
   GameOver.Score = {}
   Button = nil
