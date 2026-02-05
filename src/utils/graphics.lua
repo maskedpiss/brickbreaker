@@ -10,9 +10,10 @@ function Graphics:loadColors()
   
   self.BrickTypes = {
       {1, 1, 1}, --Type 1: white
-      {0, 1, 0}, --Type 2: green
-      {1, 0.47, 0}, --Type 3: orange
-      {1, 0, 0} --Type 4: red
+      {1, 1, 0}, --Type 2: yellow
+      {0, 1, 0}, --Type 3: green
+      {1, 0.47, 0}, --Type 4: orange
+      {1, 0, 0} --Type 5: red
   }
 end
 
