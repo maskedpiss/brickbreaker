@@ -37,6 +37,10 @@ function ScoreBoard:draw()
   if Globals.playerLives > 2 then
     love.graphics.rectangle("fill", self.Lives.x + 30, self.Lives.y, self.Lives.width, self.Lives.height)
   end
+  
+  if Globals.playerLives > 3 then
+    love.graphics.print("x"..(Globals.playerLives - 3), self.Lives.x + 60, self.Lives.y)
+  end
 end
 
 return ScoreBoard
