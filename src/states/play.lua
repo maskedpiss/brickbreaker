@@ -51,6 +51,7 @@ function Play.update(dt)
     player:shrink()
   elseif ball.y > Globals.Screen.height then
     Globals.playerLives = Globals.playerLives - 1
+    Globals.playerScore = Globals.playerScore - 50
     
     if Globals.playerLives > 0 then
       ball:reset()
