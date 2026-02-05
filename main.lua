@@ -47,6 +47,7 @@ function love.load()
       height = love.graphics.getHeight()
   }
   
+  Globals.Graphics:loadColors()
   Globals.Graphics:loadFonts()
   GameState:changeState("menu")
 end

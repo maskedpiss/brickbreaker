@@ -2,7 +2,10 @@ local Graphics = {}
 
 
 function Graphics:loadColors()
-  
+  self.Colors = {
+      black = {0, 0, 0},
+      white = {1, 1, 1}
+  }
 end
 
 
