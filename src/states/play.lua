@@ -98,8 +98,14 @@ function Play.update(dt)
         end
       end
       
-      table.remove(Globals.Bricks, i)
-      Globals.playerScore = Globals.playerScore + 100
+      brick.health = brick.health - 1
+      
+      if brick.health <= 0 then
+        table.remove(Globals.Bricks, i)
+        Globals.playerScore = Globals.playerScore + 100
+      else
+        Globals.playerScore = Globals.playerScore + 10
+      end
       break
     end
   end
