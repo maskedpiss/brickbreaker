@@ -64,6 +64,8 @@ function Play.update(dt)
   end
   
   if Globals.Collisions:AABB(ball, player) then
+    Globals.Sound:playSound(Globals.Sound.SFX.HitPaddle)
+    
     ball.y = player.y - ball.height
     ball.yVel = -ball.yVel
     
