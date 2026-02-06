@@ -21,8 +21,8 @@ end
 function Graphics:loadFonts()
   self.Fonts = {
       TitleFont = love.graphics.newFont("res/fonts/Pixelmania.ttf", 78),
-      ScoreFont = love.graphics.newFont(64),
-      ButtonFont = love.graphics.newFont(32)
+      ScoreFont = love.graphics.newFont("res/fonts/PixelTwist.ttf", 64),
+      ButtonFont = love.graphics.newFont("res/fonts/PixelTwist.ttf", 32)
   }
 end
 

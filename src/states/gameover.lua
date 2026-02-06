@@ -17,7 +17,7 @@ function GameOver.onEnter()
   }
   
   GameOver.Score = {
-      text = "Score: ",
+      text = "score: ",
       x = Globals.Screen.x,
       y = 200
   }
