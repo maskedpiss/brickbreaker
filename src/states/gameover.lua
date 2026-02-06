@@ -41,6 +41,8 @@ end
 
 
 function GameOver.update(dt)
+  local mouseX, mouseY = love.mouse.getPosition()
+  
   if Globals.playerLives > 0 then
     GameOver.Message.text = "YOU WIN"
   else
@@ -49,10 +51,26 @@ function GameOver.update(dt)
   
   if retryButton then
     retryButton:update(dt)
+    
+    if retryButton:isHovering(mouseX, mouseY) then
+      if not Globals.hasPlayed then
+        Globals.Sound:playSound(Globals.Sound.SFX.ButtonHover)
+      end
+    else
+      Globals.hasPlayed = false
+    end
   end
   
   menuButton:update(dt)
   exitButton:update(dt)
+  
+  if menuButton:isHovering(mouseX, mouseY) or exitButton:isHovering(mouseX, mouseY) then
+    if not Globals.hasPlayed then
+      Globals.Sound:playSound(Globals.Sound.SFX.ButtonHover)
+    end
+  else
+    Globals.hasPlayed = false
+  end
 end
 
 

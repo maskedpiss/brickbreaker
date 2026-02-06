@@ -11,7 +11,9 @@ end
 
 
 function Sound:playSound(sound)
+  love.audio.stop()
   love.audio.play(sound)
+  Globals.hasPlayed = true
 end
 
 
