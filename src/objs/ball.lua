@@ -28,14 +28,17 @@ function Ball:update(dt)
   if self.x < Globals.Screen.x then
     self.x = Globals.Screen.x
     self.xVel = -self.xVel
+    Globals.Sound:playSound(Globals.Sound.SFX.HitCeiling)
   elseif self.x + self.width > Globals.Screen.width then
     self.x = Globals.Screen.width - self.width
     self.xVel = -self.xVel
+    Globals.Sound:playSound(Globals.Sound.SFX.HitCeiling)
   end
   
   if self.y < Globals.Screen.y then
     self.y = Globals.Screen.y
     self.yVel = -self.yVel
+    Globals.Sound:playSound(Globals.Sound.SFX.HitCeiling)
   end
 end
 
