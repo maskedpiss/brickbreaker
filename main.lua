@@ -1,6 +1,7 @@
 Globals = {}
 Globals.Bricks = {}
 Globals.Graphics = require("src/utils/graphics")
+Globals.Sound = require("src/utils/sound")
 Globals.Collisions = require("src/utils/collisions")
 Globals.Levels = require("src/utils/levels")
 Globals.level = 1
@@ -49,6 +50,9 @@ function love.load()
   
   Globals.Graphics:loadColors()
   Globals.Graphics:loadFonts()
+  
+  Globals.Sound:loadSFX()
+  
   GameState:changeState("menu")
 end
 
