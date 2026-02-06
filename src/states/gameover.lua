@@ -23,12 +23,9 @@ function GameOver.onEnter()
   }
   
   Button = require("src/objs/button")
-  
-  if Globals.playerLives <= 0 then
-    retryButton = Button.new("Retry", Globals.Screen.width / 2, Globals.Screen.height / 2, function()
-        GameState:changeState("play")
-      end)
-  end
+  retryButton = Button.new("Retry", Globals.Screen.width / 2, Globals.Screen.height / 2, function()
+      GameState:changeState("play")
+    end)
   
   menuButton = Button.new("Menu", Globals.Screen.width / 2, (Globals.Screen.height / 2) + 100, function()
       GameState:changeState("menu")
@@ -49,22 +46,11 @@ function GameOver.update(dt)
     GameOver.Message.text = "GAME OVER"
   end
   
-  if retryButton then
-    retryButton:update(dt)
-    
-    if retryButton:isHovering(mouseX, mouseY) then
-      if not Globals.hasPlayed then
-        Globals.Sound:playSound(Globals.Sound.SFX.ButtonHover)
-      end
-    else
-      Globals.hasPlayed = false
-    end
-  end
-  
+  retryButton:update(dt)
   menuButton:update(dt)
   exitButton:update(dt)
   
-  if menuButton:isHovering(mouseX, mouseY) or exitButton:isHovering(mouseX, mouseY) then
+  if retryButton:isHovering(mouseX, mouseY) or menuButton:isHovering(mouseX, mouseY) or exitButton:isHovering(mouseX, mouseY) then
     if not Globals.hasPlayed then
       Globals.Sound:playSound(Globals.Sound.SFX.ButtonHover)
     end
@@ -75,7 +61,7 @@ end
 
 
 function GameOver.mousepressed(x, y, button)
-  if retryButton and retryButton:mousepressed(x, y, button) then
+  if retryButton:mousepressed(x, y, button) then
     return
   end
   
