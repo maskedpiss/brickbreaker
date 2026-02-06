@@ -20,7 +20,7 @@ end
 
 function Graphics:loadFonts()
   self.Fonts = {
-      TitleFont = love.graphics.newFont(128),
+      TitleFont = love.graphics.newFont("res/fonts/Pixelmania.ttf", 78),
       ScoreFont = love.graphics.newFont(64),
       ButtonFont = love.graphics.newFont(32)
   }

@@ -42,9 +42,9 @@ end
 
 function GameOver.update(dt)
   if Globals.playerLives > 0 then
-    GameOver.Message.text = "You Win!"
+    GameOver.Message.text = "YOU WIN"
   else
-    GameOver.Message.text = "Game Over!"
+    GameOver.Message.text = "GAME OVER"
   end
   
   if retryButton then

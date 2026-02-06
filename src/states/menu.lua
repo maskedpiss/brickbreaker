@@ -10,17 +10,17 @@ function Menu.onEnter()
   love.mouse.setGrabbed(false)
   
   Menu.Title = {
-      text = "Brick Breaker",
+      text = "BRICK BREAKER",
       x = Globals.Screen.x,
       y = 50
   }
   
   Button = require("src/objs/button")
-  playButton = Button.new("Play", Globals.Screen.width / 2, Globals.Screen.height / 2, function()
+  playButton = Button.new("Play", Globals.Screen.width / 2, (Globals.Screen.height / 2) + 100, function()
       GameState:changeState("levelTransition")
     end)
   
-  exitButton = Button.new("Exit", Globals.Screen.width / 2, (Globals.Screen.height / 2) + 100, function()
+  exitButton = Button.new("Exit", Globals.Screen.width / 2, (Globals.Screen.height / 2) + 200, function()
       love.event.quit()
     end)
 end

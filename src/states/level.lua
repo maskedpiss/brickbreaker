@@ -21,7 +21,7 @@ end
 function Level.draw()
   love.graphics.setColor(Globals.Graphics.Colors.white)
   love.graphics.setFont(Globals.Graphics.Fonts.TitleFont)
-  love.graphics.printf("Level "..Globals.level, Level.Text.x, Level.Text.y, Globals.Screen.width, "center")
+  love.graphics.printf("LEVEL "..Globals.level, Level.Text.x, Level.Text.y, Globals.Screen.width, "center")
 end
 
 
