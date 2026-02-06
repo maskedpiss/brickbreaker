@@ -111,7 +111,7 @@ function Play.update(dt)
   end
   
   if next(Globals.Bricks) == nil then
-    if Globals.level < 8 then
+    if Globals.level < 28 then
       Globals.level = Globals.level + 1
       
       if not Globals.playerMissed then

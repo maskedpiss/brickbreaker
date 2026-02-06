@@ -39,7 +39,7 @@ function ScoreBoard:draw()
   end
   
   if Globals.playerLives > 3 then
-    love.graphics.print("x"..(Globals.playerLives - 3), self.Lives.x + 60, self.Lives.y)
+    love.graphics.print("x"..(Globals.playerLives - 3), self.Lives.x + 60, 10)
   end
 end
 
