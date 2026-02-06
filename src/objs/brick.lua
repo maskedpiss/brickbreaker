@@ -22,7 +22,6 @@ function Brick:init(levelNumber)
   
   local startX, startY = 50, 50
   local bricksPerRow = 16
-  
   local layout = Globals.Levels.Layouts[levelNumber]
   
   for i, brickType in ipairs(layout) do
