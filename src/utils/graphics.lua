@@ -1,6 +1,5 @@
 local Graphics = {}
 
-
 function Graphics:loadColors()
   self.Colors = {
       black = {0, 0, 0},

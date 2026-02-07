@@ -72,6 +72,13 @@ function love.mousepressed(x, y, button)
 end
 
 
+function love.keypressed(key)
+  if GameState.current and GameState.current.keypressed then
+    GameState.current.keypressed(key)
+  end
+end
+
+
 function love.draw()
   if GameState.current and GameState.current.draw then
     GameState.current.draw()

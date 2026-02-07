@@ -9,6 +9,8 @@ local scoreBoard = nil
 local rows = nil
 local cols = nil
 
+local isPaused = false
+
 function Play.onEnter()
   if Globals.level == 1 then
     Globals.playerLives = 3
@@ -132,11 +134,33 @@ function Play.update(dt)
 end
 
 
+function Play.keypressed(key)
+  if key == "escape" then
+    Play.pause()
+  end
+end
+
+
 function Play.draw()
   player:draw()
   ball:draw()
   brick:draw()
   scoreBoard:draw()
+  
+  love.graphics.setColor(1, 1, 1)
+  love.graphics.setFont(Globals.Graphics.Fonts.TitleFont)
+  if isPaused then
+    love.graphics.printf("PAUSED", Globals.Screen.x, 50, Globals.Screen.width, "center")
+  end
+end
+
+
+function Play.pause()
+  if not isPaused then
+    isPaused = true
+  else
+    isPaused = false
+  end
 end
 
 

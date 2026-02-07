@@ -16,5 +16,4 @@ function Sound:playSound(sound)
   Globals.hasPlayed = true
 end
 
-
 return Sound
