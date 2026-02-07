@@ -152,7 +152,7 @@ function Play.draw()
   love.graphics.setColor(1, 1, 1)
   love.graphics.setFont(Globals.Graphics.Fonts.TitleFont)
   if isPaused then
-    love.graphics.printf("PAUSED", Globals.Screen.x, 50, Globals.Screen.width, "center")
+    love.graphics.printf("PAUSED", Globals.Screen.x, (Globals.Screen.height / 2) - (Globals.Graphics.Fonts.TitleFont:getHeight() / 2), Globals.Screen.width, "center")
   end
 end
 
