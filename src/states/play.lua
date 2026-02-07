@@ -44,92 +44,94 @@ end
 
 
 function Play.update(dt)
-  player:update(dt)
-  ball:update(dt)
+  if not isPaused then
+    player:update(dt)
+    ball:update(dt)
   
-  brick:update(dt)
-  scoreBoard:update(dt)
+    brick:update(dt)
+    scoreBoard:update(dt)
   
-  if ball.y <= Globals.Screen.y then
-    player:shrink()
-  elseif ball.y > Globals.Screen.height then
-    Globals.playerLives = Globals.playerLives - 1
-    Globals.playerScore = Globals.playerScore - 50
-    
-    if not Globals.playerMissed then
-      Globals.playerMissed = true
+    if ball.y <= Globals.Screen.y then
+      player:shrink()
+    elseif ball.y > Globals.Screen.height then
+      Globals.playerLives = Globals.playerLives - 1
+      Globals.playerScore = Globals.playerScore - 50
+      
+      if not Globals.playerMissed then
+        Globals.playerMissed = true
+      end
+      
+      if Globals.playerLives > 0 then
+        ball:reset()
+      end
     end
-    
-    if Globals.playerLives > 0 then
-      ball:reset()
+  
+    if Globals.Collisions:AABB(ball, player) then
+      Globals.Sound:playSound(Globals.Sound.SFX.HitPaddle)
+      
+      ball.y = player.y - ball.height
+      ball.yVel = -ball.yVel
+      
+      local middleBall = ball.x + ball.width / 2
+      local middlePaddle = player.x + player.width / 2
+      local collisionPosition = middleBall - middlePaddle
+      
+      ball.xVel = collisionPosition * 5
     end
-  end
   
-  if Globals.Collisions:AABB(ball, player) then
-    Globals.Sound:playSound(Globals.Sound.SFX.HitPaddle)
-    
-    ball.y = player.y - ball.height
-    ball.yVel = -ball.yVel
-    
-    local middleBall = ball.x + ball.width / 2
-    local middlePaddle = player.x + player.width / 2
-    local collisionPosition = middleBall - middlePaddle
-    
-    ball.xVel = collisionPosition * 5
-  end
-  
-  for i, brick in ipairs(Globals.Bricks) do
-    if Globals.Collisions:AABB(ball, brick) then
-      if math.abs(ball.y - brick.y) < 50 then
-        local hitSide = Globals.Collisions:checkBrickCollision(ball, brick)
-        
-        if hitSide then
-          if hitSide == "horizontal" then
-            ball.xVel = -ball.xVel
-            if ball.x < brick.x then
-              ball.x = brick.x - ball.width
+    for i, brick in ipairs(Globals.Bricks) do
+      if Globals.Collisions:AABB(ball, brick) then
+        if math.abs(ball.y - brick.y) < 50 then
+          local hitSide = Globals.Collisions:checkBrickCollision(ball, brick)
+          
+          if hitSide then
+            if hitSide == "horizontal" then
+              ball.xVel = -ball.xVel
+              if ball.x < brick.x then
+                ball.x = brick.x - ball.width
+              else
+                ball.x = brick.x + brick.width
+              end
             else
-              ball.x = brick.x + brick.width
-            end
-          else
-            ball.yVel = -ball.yVel
-            if ball.y < brick.y then
-              ball.y = brick.y - ball.height
-            else
-              ball.y = brick.y + brick.height
+              ball.yVel = -ball.yVel
+              if ball.y < brick.y then
+                ball.y = brick.y - ball.height
+              else
+                ball.y = brick.y + brick.height
+              end
             end
           end
         end
+        
+        brick.health = brick.health - 1
+        
+        if brick.health <= 0 then
+          table.remove(Globals.Bricks, i)
+          Globals.playerScore = Globals.playerScore + 100
+        else
+          Globals.playerScore = Globals.playerScore + 10
+        end
+        break
       end
-      
-      brick.health = brick.health - 1
-      
-      if brick.health <= 0 then
-        table.remove(Globals.Bricks, i)
-        Globals.playerScore = Globals.playerScore + 100
-      else
-        Globals.playerScore = Globals.playerScore + 10
-      end
-      break
     end
-  end
   
-  if next(Globals.Bricks) == nil then
-    if Globals.level < 28 then
-      Globals.level = Globals.level + 1
-      
-      if not Globals.playerMissed then
-        Globals.playerLives = Globals.playerLives + 1
+    if next(Globals.Bricks) == nil then
+      if Globals.level < 28 then
+        Globals.level = Globals.level + 1
+        
+        if not Globals.playerMissed then
+          Globals.playerLives = Globals.playerLives + 1
+        end
+        
+        GameState:changeState("levelTransition")
+      else
+        GameState:changeState("gameOver")
       end
-      
-      GameState:changeState("levelTransition")
-    else
+    end
+  
+    if Globals.playerLives < 1 then
       GameState:changeState("gameOver")
     end
-  end
-  
-  if Globals.playerLives < 1 then
-    GameState:changeState("gameOver")
   end
 end
 
@@ -158,8 +160,14 @@ end
 function Play.pause()
   if not isPaused then
     isPaused = true
+    Globals.mouseVisible = true
+    love.mouse.setVisible(Globals.mouseVisible)
+    love.mouse.setGrabbed(false)
   else
     isPaused = false
+    Globals.mouseVisible = false
+    love.mouse.setVisible(Globals.mouseVisible)
+    love.mouse.setGrabbed(true)
   end
 end
 
