@@ -139,6 +139,7 @@ end
 function Play.keypressed(key)
   if key == "escape" then
     Play.pause()
+    Globals.Sound:playSound(Globals.Sound.SFX.Pause)
   end
 end
 
