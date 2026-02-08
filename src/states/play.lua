@@ -111,6 +111,7 @@ function Play.update(dt)
           Globals.Sound:playSound(Globals.Sound.SFX.BrickBreak)
         else
           Globals.playerScore = Globals.playerScore + 10
+          Globals.Sound:playSound(Globals.Sound.SFX.BrickDamage)
         end
         break
       end
