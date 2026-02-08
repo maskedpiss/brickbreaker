@@ -34,6 +34,17 @@ function GameOver.onEnter()
   exitButton = Button.new("Exit", Globals.Screen.width / 2, (Globals.Screen.height / 2) + 200, function()
       love.event.quit()
     end)
+  
+  GameOver.pickSound()
+end
+
+
+function GameOver.pickSound()
+  if Globals.playerLives > 0 then
+    Globals.Sound:playSong(Globals.Sound.Song.Win)
+  else
+    Globals.Sound:playSong(Globals.Sound.Song.Lose)
+  end
 end
 
 
