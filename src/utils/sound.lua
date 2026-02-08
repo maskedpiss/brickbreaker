@@ -16,7 +16,11 @@ end
 
 
 function Sound:loadMusic()
-  self.Song = {}
+  self.Song = {
+      NewLevel = love.audio.newSource("res/sound/music/NewLevel.wav", "stream"),
+      Lose = love.audio.newSource("res/sound/music/Lose.wav", "stream"),
+      Win = love.audio.newSource("res/sound/music/Win.wav", "stream")
+  }
 end
 
 

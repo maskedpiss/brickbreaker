@@ -53,6 +53,7 @@ function love.load()
   Globals.Graphics:loadFonts()
   
   Globals.Sound:loadSFX()
+  Globals.Sound:loadMusic()
   
   GameState:changeState("menu")
 end
