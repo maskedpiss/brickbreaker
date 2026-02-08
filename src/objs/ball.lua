@@ -38,7 +38,10 @@ function Ball:update(dt)
   if self.y < Globals.Screen.y then
     self.y = Globals.Screen.y
     self.yVel = -self.yVel
-    Globals.Sound:playSound(Globals.Sound.SFX.HitCeiling)
+    
+    if Globals.playerShrunk then
+      Globals.Sound:playSound(Globals.Sound.SFX.HitCeiling)
+    end
   end
 end
 

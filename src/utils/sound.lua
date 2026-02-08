@@ -8,7 +8,9 @@ function Sound:loadSFX()
       HitPaddle = love.audio.newSource("res/sound/sfx/HitPaddle1.wav", "static"),
       Pause = love.audio.newSource("res/sound/sfx/Pause.wav", "static"),
       BrickBreak = love.audio.newSource("res/sound/sfx/BrickBreak.wav", "static"),
-      BrickDamage = love.audio.newSource("res/sound/sfx/BrickDamage.wav", "static")
+      BrickDamage = love.audio.newSource("res/sound/sfx/BrickDamage.wav", "static"),
+      PaddleShorten = love.audio.newSource("res/sound/sfx/PaddleShorten.wav", "static"),
+      LoseLife = love.audio.newSource("res/sound/sfx/LoseLife.wav", "static")
   }
 end
 

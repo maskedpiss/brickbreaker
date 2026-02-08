@@ -34,6 +34,7 @@ function Paddle:shrink()
     self.x = self.x + (diff / 2)
     
     Globals.playerShrunk = true
+    Globals.Sound:playSound(Globals.Sound.SFX.PaddleShorten)
   end
 end
 

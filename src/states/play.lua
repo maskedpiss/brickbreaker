@@ -56,6 +56,7 @@ function Play.update(dt)
     elseif ball.y > Globals.Screen.height then
       Globals.playerLives = Globals.playerLives - 1
       Globals.playerScore = Globals.playerScore - 50
+      Globals.Sound:playSound(Globals.Sound.SFX.LoseLife)
       
       if not Globals.playerMissed then
         Globals.playerMissed = true
