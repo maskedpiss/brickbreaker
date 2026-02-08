@@ -30,4 +30,9 @@ function Sound:playSound(sound)
   Globals.hasPlayed = true
 end
 
+
+function Sound:playSong(song)
+  love.audio.play(song)
+end
+
 return Sound
