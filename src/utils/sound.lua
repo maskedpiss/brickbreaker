@@ -15,6 +15,11 @@ function Sound:loadSFX()
 end
 
 
+function Sound:loadMusic()
+  self.Song = {}
+end
+
+
 function Sound:playSound(sound)
   love.audio.stop()
   love.audio.play(sound)
