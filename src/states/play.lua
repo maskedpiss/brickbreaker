@@ -108,6 +108,7 @@ function Play.update(dt)
         if brick.health <= 0 then
           table.remove(Globals.Bricks, i)
           Globals.playerScore = Globals.playerScore + 100
+          Globals.Sound:playSound(Globals.Sound.SFX.BrickBreak)
         else
           Globals.playerScore = Globals.playerScore + 10
         end
