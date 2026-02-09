@@ -24,7 +24,7 @@ function GameOver.onEnter()
   
   Button = require("src/objs/button")
   retryButton = Button.new("Retry", Globals.Screen.width / 2, Globals.Screen.height / 2, function()
-      GameState:changeState("play")
+      GameState:changeState("levelTransition")
     end)
   
   menuButton = Button.new("Menu", Globals.Screen.width / 2, (Globals.Screen.height / 2) + 100, function()
