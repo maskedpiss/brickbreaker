@@ -23,6 +23,10 @@ function Graphics:loadFonts()
       ScoreFont = love.graphics.newFont("res/fonts/PixelTwist.ttf", 64),
       ButtonFont = love.graphics.newFont("res/fonts/PixelTwist.ttf", 32)
   }
+  
+  for _, font in pairs(self.Fonts) do
+    font:setFilter("nearest", "nearest")
+  end
 end
 
 return Graphics
