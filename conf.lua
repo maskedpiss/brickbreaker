@@ -1,5 +1,5 @@
 function love.conf(t)
-    t.identiy = "brick_breaker"
+    t.identity = "brick_breaker"
     t.version = "11.5"
     
     t.window.title = "Brick Breaker"
@@ -7,6 +7,7 @@ function love.conf(t)
     t.window.height = 720
     t.window.vsync = 1
     t.window.resizable = false
+    t.window.highdpi = true
     
     t.modules.physics = false
     t.modules.joystick = false

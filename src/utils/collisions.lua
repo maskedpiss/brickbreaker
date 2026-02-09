@@ -7,13 +7,6 @@ end
 
 
 function Collisions:checkBrickCollision(a, b)
-  if not (a.x < b.x + b.width and
-          a.x + a.width > b.x and
-          a.y < b.y + b.height and
-          a.y + a.height > b.y) then
-      return nil
-  end
-  
   local overlapX, overlapY
   local direction = "vertical"
   

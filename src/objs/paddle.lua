@@ -4,10 +4,10 @@ function Paddle.new()
   local instance = {}
   setmetatable(instance, { __index = Paddle })
   
-  instance.x = Globals.Screen.width / 2
-  instance.y = Globals.Screen.height - 75
   instance.width = 100
   instance.height = 20
+  instance.x = (Globals.Screen.width / 2) - (instance.width / 2)
+  instance.y = Globals.Screen.height - 75
   
   return instance
 end
@@ -15,13 +15,9 @@ end
 
 function Paddle:update(dt)
   local mouseX, mouseY = love.mouse.getPosition()
-  self.x = self.x + (mouseX - self.x) * (20 * dt)
-  
-  if self.x < Globals.Screen.x then
-    self.x = Globals.Screen.x
-  elseif self.x + self.width > Globals.Screen.width then
-    self.x = Globals.Screen.width - self.width
-  end
+  local target = mouseX - (self.width / 2)
+  self.x = self.x + (target - self.x) * (20 * dt)
+  self.x = math.max(0, math.min(self.x, Globals.Screen.width - self.width))
 end
 
 

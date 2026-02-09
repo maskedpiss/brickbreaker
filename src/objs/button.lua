@@ -11,7 +11,7 @@ function Button.new(text, x, y, callback)
   instance.width = 150
   instance.height = 75
   instance.x = x - (instance.width / 2)
-  instance.y = y - (instance.width / 2)
+  instance.y = y - (instance.height / 2)
   instance.callback = callback or function() end
   
   return instance

@@ -16,7 +16,7 @@ function Ball:reset()
   self.width = 20
   self.height = self.width
   self.speed = 300
-  self.xVel = love.math.random(-50, 50)
+  self.xVel = love.math.random(-200, 200)
   self.yVel = -self.speed
 end
 
@@ -27,21 +27,18 @@ function Ball:update(dt)
   
   if self.x < Globals.Screen.x then
     self.x = Globals.Screen.x
-    self.xVel = -self.xVel
+    self.xVel = math.abs(self.xVel)
     Globals.Sound:playSound(Globals.Sound.SFX.HitCeiling)
   elseif self.x + self.width > Globals.Screen.width then
     self.x = Globals.Screen.width - self.width
-    self.xVel = -self.xVel
+    self.xVel = -math.abs(self.xVel)
     Globals.Sound:playSound(Globals.Sound.SFX.HitCeiling)
   end
   
   if self.y < Globals.Screen.y then
     self.y = Globals.Screen.y
-    self.yVel = -self.yVel
-    
-    if Globals.playerShrunk then
-      Globals.Sound:playSound(Globals.Sound.SFX.HitCeiling)
-    end
+    self.yVel = math.abs(self.yVel)
+    Globals.Sound:playSound(Globals.Sound.SFX.HitCeiling)
   end
 end
 

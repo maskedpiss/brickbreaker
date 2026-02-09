@@ -7,14 +7,18 @@ function Level.onEnter()
   }
   
   Level.Timer = 4
+  
+  print("Entered Level State")
+  Globals.Sound:playSong(Globals.Sound.Song.NewLevel)
+end
+
+
+function Level.playSong()
+  Globals.Sound:playSong(Globals.Sound.Song.NewLevel)
 end
 
 
 function Level.update(dt)
-  if Level.Timer == 4 then
-    Globals.Sound:playSong(Globals.Sound.Song.NewLevel)
-  end
-  
   Level.Timer = Level.Timer - dt
   if Level.Timer <= 0 then
     GameState:changeState("play")

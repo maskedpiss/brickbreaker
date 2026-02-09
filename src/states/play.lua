@@ -47,8 +47,6 @@ function Play.update(dt)
   if not isPaused then
     player:update(dt)
     ball:update(dt)
-  
-    brick:update(dt)
     scoreBoard:update(dt)
   
     if ball.y <= Globals.Screen.y then
@@ -108,6 +106,7 @@ function Play.update(dt)
         end
         
         brick.health = brick.health - 1
+        brick.color = Globals.Graphics.BrickTypes[brick.health]
         
         if brick.health <= 0 then
           table.remove(Globals.Bricks, i)
@@ -122,13 +121,8 @@ function Play.update(dt)
     end
   
     if next(Globals.Bricks) == nil then
-      if Globals.level < 28 then
+      if Globals.level < #Globals.Levels.Layouts then
         Globals.level = Globals.level + 1
-        
-        if not Globals.playerMissed then
-          Globals.playerLives = Globals.playerLives + 1
-        end
-        
         GameState:changeState("levelTransition")
       else
         GameState:changeState("gameOver")

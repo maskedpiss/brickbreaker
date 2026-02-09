@@ -11,7 +11,7 @@ function Brick.new(x, y, health)
   instance.x = x
   instance.y = y
   instance.health = health
-  instance.color = Globals.Graphics.BrickTypes[1]
+  instance.color = Globals.Graphics.BrickTypes[health]
   
   return instance
 end
@@ -19,28 +19,20 @@ end
 
 function Brick:init(levelNumber)
   Globals.Bricks = {}
+  local layout = Globals.Levels.Layouts[levelNumber]
+  if not layout then return end
   
   local startX, startY = 50, 50
   local bricksPerRow = 16
-  local layout = Globals.Levels.Layouts[levelNumber]
   
   for i, brickType in ipairs(layout) do
     if brickType > 0 then
-      local brickHealth = brickType
       local col = (i - 1) % bricksPerRow
       local row = math.floor((i - 1) / bricksPerRow)
       local x = startX + (col * (self.width + self.paddingX))
       local y = startY + (row * (self.height + self.paddingY))
-      local newBrick = Brick.new(x, y, brickHealth)
-      table.insert(Globals.Bricks, newBrick)
+      table.insert(Globals.Bricks, Brick.new(x, y, brickType))
     end
-  end
-end
-
-
-function Brick:update(dt)
-  for i, brick in ipairs(Globals.Bricks) do
-    brick.color = Globals.Graphics.BrickTypes[brick.health]
   end
 end
 

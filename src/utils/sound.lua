@@ -25,14 +25,19 @@ end
 
 
 function Sound:playSound(sound)
-  love.audio.stop()
+  sound:stop()
   love.audio.play(sound)
   Globals.hasPlayed = true
 end
 
 
 function Sound:playSong(song)
-  love.audio.play(song)
+  for _, s in pairs(self.Song) do
+    s:stop()
+  end
+  
+  song:seek(0)
+  song:play()
 end
 
 return Sound
