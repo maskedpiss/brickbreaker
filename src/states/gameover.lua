@@ -94,10 +94,7 @@ function GameOver.draw()
   love.graphics.setFont(Globals.Graphics.Fonts.ScoreFont)
   love.graphics.printf(GameOver.Score.text..tostring(Globals.playerScore), GameOver.Score.x, GameOver.Score.y, Globals.Screen.width, "center")
   
-  if Globals.playerLives <= 0 then
-    retryButton:draw()
-  end
-  
+  retryButton:draw()
   menuButton:draw()
   exitButton:draw()
 end
