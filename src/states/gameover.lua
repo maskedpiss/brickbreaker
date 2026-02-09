@@ -35,6 +35,12 @@ function GameOver.onEnter()
       love.event.quit()
     end)
   
+  if Globals.playerLives > 0 then
+    GameOver.Message.text = "YOU WIN"
+  else
+    GameOver.Message.text = "GAME OVER"
+  end
+  
   GameOver.pickSound()
 end
 
@@ -50,12 +56,6 @@ end
 
 function GameOver.update(dt)
   local mouseX, mouseY = love.mouse.getPosition()
-  
-  if Globals.playerLives > 0 then
-    GameOver.Message.text = "YOU WIN"
-  else
-    GameOver.Message.text = "GAME OVER"
-  end
   
   retryButton:update(dt)
   menuButton:update(dt)
